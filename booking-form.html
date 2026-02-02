@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Hill Studio | Booking Form</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        background: linear-gradient(
+            rgba(247, 244, 239, 0.95),
+            rgba(247, 244, 239, 0.95)
+          ),
+          url("https://images.unsplash.com/photo-1520854221256-17451cc331bf");
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+      /* MAIN CARD */
+      .form-container {
+        width: 820px;
+        margin: 40px auto;
+        background: #ffffffee;
+        padding: 40px 45px;
+        border-radius: 26px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        border: 1px solid #e6dccb;
+      }
+
+      /* HEADER */
+      .header {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 34px;
+        letter-spacing: 3px;
+        font-weight: 700;
+        color: #3a2b1a;
+      }
+
+      .header p {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #6d5a40;
+      }
+
+      /* TITLE */
+      .title {
+        text-align: center;
+        font-family: "Delius Swash Caps", cursive;
+        font-size: 46px;
+        margin: 25px 0 35px;
+        color: #8b6b3e;
+      }
+
+      /* ROWS */
+      .row {
+        display: flex;
+        gap: 22px;
+        margin-bottom: 18px;
+      }
+
+      .field {
+        flex: 1;
+      }
+
+      /* LABEL */
+      label {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #4a3a28;
+      }
+
+      /* INPUT */
+      input {
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        background: #f9f6f2;
+        padding: 14px 16px;
+        font-size: 15px;
+        margin-top: 6px;
+        transition: all 0.3s ease;
+        border: 1px solid #e0d6c8;
+      }
+
+      input::placeholder {
+        color: #b3a795;
+      }
+
+      input:focus {
+        outline: none;
+        background: #fff;
+        border-color: #c19a5b;
+        box-shadow: 0 0 0 4px rgba(193, 154, 91, 0.15);
+      }
+
+      /* EVENTS */
+      .events {
+        margin-top: 10px;
+      }
+
+      .event-row {
+        display: flex;
+        gap: 12px;
+        background: #faf7f3;
+        padding: 14px;
+        border-radius: 16px;
+        margin-bottom: 12px;
+        border: 1px dashed #dccbb2;
+        transition: all 0.3s ease;
+      }
+
+      .event-row:hover {
+        background: #fff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      /* ADD EVENT */
+      .add-btn {
+        margin-top: 8px;
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #f0e6d4, #e2d2b3);
+        font-size: 14px;
+        font-weight: 600;
+        color: #5b4428;
+        cursor: pointer;
+        border: 1px solid #dccbb2;
+        transition: all 0.3s ease;
+      }
+
+      .add-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* BUTTON */
+      button {
+        margin-top: 35px;
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #b08a4f, #8b6b3e);
+        color: #fff;
+        border: none;
+        border-radius: 40px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* MOBILE */
+      @media (max-width: 900px) {
+        .form-container {
+          width: 95%;
+          padding: 30px 25px;
+        }
+        .row,
+        .event-row {
+          flex-direction: column;
+        }
+        .title {
+          font-size: 38px;
+        }
+      }
+
+      /* =========================
+   MOBILE-FIRST ENHANCEMENTS
+   ========================= */
+
+      /* Improve tap experience */
+      input,
+      button {
+        min-height: 48px;
+        touch-action: manipulation;
+      }
+
+      /* Mobile layout */
+      @media (max-width: 600px) {
+        body {
+          background-attachment: scroll;
+        }
+
+        .form-container {
+          margin: 0;
+          border-radius: 0;
+          padding: 25px 18px 120px; /* bottom space for sticky button */
+          box-shadow: none;
+        }
+
+        .header h1 {
+          font-size: 26px;
+          letter-spacing: 2px;
+        }
+
+        .title {
+          font-size: 34px;
+          margin: 20px 0 25px;
+        }
+
+        label {
+          font-size: 12px;
+        }
+
+        input {
+          font-size: 16px; /* prevents iOS zoom */
+          padding: 16px;
+          border-radius: 14px;
+        }
+
+        .row,
+        .event-row {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        /* Event card on mobile */
+        .event-row {
+          padding: 16px;
+          border-radius: 18px;
+          background: #fff;
+          border: 1px solid #e6dccb;
+        }
+
+        /* Add event button */
+        .add-btn {
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          padding: 14px;
+          border-radius: 30px;
+        }
+
+        /* Sticky submit button (VERY IMPORTANT) */
+        button {
+          position: fixed;
+          bottom: 12px;
+          left: 12px;
+          right: 12px;
+          width: auto;
+          z-index: 999;
+          border-radius: 35px;
+          font-size: 17px;
+          padding: 16px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      /* MODE OF PAYMENT BOX */
+.payment-box {
+  margin-top: 30px;
+  padding: 28px 30px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #faf7f3, #f3ede4);
+  border: 1px solid #e2d6c4;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8),
+              0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.payment-box h2 {
+  margin: 0 0 18px;
+  font-size: 24px;
+  text-align: center;
+  color: #7a5a2e;
+  letter-spacing: 1px;
+}
+
+/* Payment steps */
+.payment-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.payment-steps span {
+  flex: 1;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #5b4428;
+  background: #fff;
+  border: 1px dashed #d6c3a3;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Notes heading */
+.payment-box h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #8b6b3e;
+}
+
+/* Notes list */
+.payment-box ol {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+.payment-box ol li {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  color: #4a3a28;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .payment-steps {
+    flex-direction: column;
+  }
+
+  .payment-steps span {
+    font-size: 15px;
+    padding: 16px;
+  }
+
+  .payment-box {
+    padding: 24px 18px;
+  }
+}
+
+    </style>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <div class="header">
+        <h1>GREEN HILL STUDIO</h1>
+        <p>Ph: 6397087586, 8193079242 | Mail: greenhillstudio13@gmail.com</p>
+      </div>
+
+      <div class="title">Booking Form</div>
+
+      <div class="row">
+        <div class="field">
+          <label>Name *</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="field">
+          <label>Phone No *</label>
+          <input type="text" id="phone" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="field">
+          <label>Couple Name</label>
+          <input type="text" id="couple" />
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <label>Event Details</label>
+      <div class="events" id="events">
+        <div class="event-row">
+          <input type="text" placeholder="Event Name (e.g. Wedding)" />
+          <input type="date" />
+          <input type="time" />
+        </div>
+      </div>
+
+      <div class="add-btn" onclick="addEvent()">+ Add Another Event</div>
+
+      <div class="row">
+        <div class="field">
+          <label>Address</label>
+          <input type="text" id="address" />
+        </div>
+        <div class="field">
+          <label>Selected Package</label>
+          <input type="text" id="packageName" readonly />
+        </div>
+        
+      </div>
+      <div class="payment-box">
+        <h2>Mode of Payment</h2>
+      
+        <div class="payment-steps">
+          <span>20% at Booking</span>
+          <span>60% Before Event Day</span>
+          <span>20% on Final Delivery</span>
+        </div>
+      
+        <h3>Note</h3>
+        <ol>
+          <li>While making a booking, pay special attention to the booking time.</li>
+          <li>Booking without advance payment will not be considered.</li>
+          <li>Transportation arrangements will be made by the customer.</li>
+          <li>
+            If you want your favorite songs, etc. in the video, please inform us at
+            the time of booking. Otherwise, whatever we prepare will be valid.
+          </li>
+          <li>
+            Recording is not possible without electricity; therefore, electricity
+            must be arranged by the customer.
+          </li>
+          <li>
+            The main two parts of the program are recorded. Do not focus only on
+            filling the card.
+          </li>
+          <li>Overtime charges will be extra if the time exceeds the schedule.</li>
+          <li>
+            Only the advance payment will be refunded in case of booking cancellation
+            due to a technical fault in the video setup.
+          </li>
+          <li>
+            If anyone misbehaves with the photographer during the program, the booking
+            person will be fully responsible.
+          </li>
+          <li>Work will be delivered only after full payment.</li>
+          <li>Facilities and cooperation are essential for good work.</li>
+        </ol>
+      </div>
+      
+
+      <button type="button" onclick="submitForm()">Submit Booking</button>
+    </div>
+
+    <script>
+      // PACKAGE DATA
+      const packages = {
+        basic: "Basic Package",
+        advance: "Advance Package",
+        premium: "Premium Package",
+        UltraPremium: "UltraPremium Package",
+      };
+
+      // AUTO PACKAGE
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("packageName").value =
+        packages[params.get("package")] || "Not Selected";
+
+      // ADD EVENT ROW
+      function addEvent() {
+        const div = document.createElement("div");
+        div.className = "event-row";
+        div.innerHTML = `
+        <input type="text" placeholder="Event Name">
+        <input type="date">
+        <input type="time">
+    `;
+        document.getElementById("events").appendChild(div);
+      }
+
+      // SUBMIT
+      function submitForm() {
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        if (name === "" || phone === "") {
+          alert("Please fill required fields");
+          return;
+        }
+
+        let eventsText = "";
+        document.querySelectorAll(".event-row").forEach((row, i) => {
+          const inputs = row.querySelectorAll("input");
+          if (inputs[0].value) {
+            eventsText += `\n${i + 1}. ${inputs[0].value} | ${
+              inputs[1].value
+            } | ${inputs[2].value}`;
+          }
+        });
+
+        let message = `📸 NEW BOOKING – GREEN HILL STUDIO
+
+Package: ${packageName.value}
+Name: ${name}
+Phone: ${phone}
+Email: ${email.value}
+Couple: ${couple.value}
+
+Events:${eventsText}
+
+Address: ${address.value}
+`;
+
+        window.open(
+          "https://wa.me/916397087586?text=" + encodeURIComponent(message),
+          "_blank"
+        );
+
+        alert("✅ Booking submitted successfully!");
+        setTimeout(() => (window.location.href = "index.html"), 1500);
+      }
+    </script>
+  </body>
+</html>

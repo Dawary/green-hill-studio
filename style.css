@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', Tahoma, sans-serif;
+}
+
+/* BODY DEFAULT */
+body{
+  min-height:100vh;
+  background:#f7f4ef;
+}
+
+/* DARK BACKGROUND SUPPORT (when body has bg image) */
+body.dark-bg{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* MAIN WRAPPER */
+.main{
+  max-width:720px;
+  margin:60px auto;
+  padding:20px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.95);
+  border-radius:22px;
+  padding:35px 40px;
+  box-shadow:0 25px 50px rgba(0,0,0,0.25);
+  border:1px solid #e6dccb;
+  backdrop-filter: blur(6px);
+}
+
+/* TITLE */
+.card h3{
+  font-size:34px;
+  text-align:center;
+  margin-bottom:12px;
+  color:#3a2b1a;
+  letter-spacing:1px;
+}
+
+/* PRICE */
+.price{
+  font-size:30px;
+  font-weight:700;
+  text-align:center;
+  color:#8b6b3e;
+  margin-bottom:6px;
+}
+
+/* ADVANCE */
+.advance{
+  text-align:center;
+  font-size:15px;
+  color:#6d5a40;
+  margin-bottom:22px;
+}
+
+/* LIST */
+.card ul{
+  list-style:none;
+  margin-bottom:32px;
+}
+
+.card ul li{
+  font-size:16px;
+  padding:10px 0;
+  border-bottom:1px dashed #e0d6c8;
+  color:#4a3a28;
+}
+
+/* BUTTON */
+.btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:16px;
+  background:linear-gradient(135deg,#b08a4f,#8b6b3e);
+  color:#fff;
+  text-decoration:none;
+  font-size:17px;
+  font-weight:700;
+  border-radius:40px;
+  transition:all 0.35s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 35px rgba(0,0,0,0.35);
+}
+
+.back-btn{
+  background:transparent;
+  border:none;
+  font-size:16px;
+  font-weight:600;
+  color:#4a3a28;
+  margin-bottom:15px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.back-btn:hover{
+  text-decoration:underline;
+}
+
+
+
+/* -------------------- */
+/* MOBILE */
+/* -------------------- */
+@media(max-width:600px){
+  .back-btn{
+    font-size:15px;
+}
+
+  .main{
+      margin:30px auto;
+      padding:15px;
+  }
+
+  .card{
+      padding:25px 20px;
+      border-radius:18px;
+  }
+
+  .card h3{
+      font-size:28px;
+  }
+
+  .price{
+      font-size:26px;
+  }
+
+  .card ul li{
+      font-size:15px;
+      padding:8px 0;
+  }
+
+  .btn{
+      font-size:16px;
+      padding:15px;
+      border-radius:32px;
+  }
+}
+
+/* -------------------- */
+/* TABLET */
+/* -------------------- */
+@media(min-width:601px) and (max-width:900px){
+
+  .main{
+      max-width:85%;
+  }
+
+  .card h3{
+      font-size:30px;
+  }
+}
+
+/* BACK ARROW */
+.back-arrow{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.9);
+  color:#4a3a28;
+  font-size:20px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+}
+
+/* Hover / Tap */
+.back-arrow:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.3);
+}
+
+/* Dark background support */
+body.dark-bg .back-arrow{
+  background:rgba(255,255,255,0.85);
+}
+
+/* Mobile optimization */
+@media(max-width:600px){
+  .back-arrow{
+      position:sticky;
+      top:12px;
+      z-index:999;
+  }
+}
