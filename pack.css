@@ -16,6 +16,29 @@
     text-align:center;
     color:#6d5a40;
     font-size:16px;
+    margin-bottom:10px;
+  }
+  
+  .con h2{
+    text-align:center;
+    font-size:34px;
+    color:#3a2b1a;
+    margin-bottom:5px;
+  }
+  
+  .con h2::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:3px;
+    background:#b08a4f;
+    margin:10px auto 25px;
+    border-radius:2px;
+  }
+  .subtitle{
+    text-align:center;
+    color:#6d5a40;
+    font-size:16px;
     margin-bottom:30px;
   }
   
